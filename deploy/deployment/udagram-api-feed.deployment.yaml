@@ -15,7 +15,7 @@ spec:
       containers:
         - name: udagram-api-feed
           image: sxmlet/udagram-api-feed
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           env:
             - name: AWS_BUCKET
               valueFrom:

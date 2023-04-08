@@ -15,7 +15,7 @@ spec:
       containers:
         - name: udagram-api-user
           image: sxmlet/udagram-api-user
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
