@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-feed
+  labels:
+    app: udagram-api-feed
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: udagram-api-feed
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+        - name: udagram-api-feed
+          image: sxmlet/udagram-api-feed
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: AWS_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  key: AWS_BUCKET
+                  name: udagram
+            - name: UDAGRAM_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: UDAGRAM_ACCESS_KEY
+                  name: secrets
+            - name: UDAGRAM_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: UDAGRAM_SECRET_KEY
+                  name: secrets
+            - name: UDAGRAM_SESSION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: UDAGRAM_SESSION_TOKEN
+                  name: secrets
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_USER
+                  name: secrets
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: secrets
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_DB
+                  name: secrets
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_HOST
+                  name: secrets
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: JWT_SECRET
+                  name: secrets
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: udagram-api-feed
