@@ -1,26 +1,20 @@
 services:
   backend-reverse-proxy:
     image: sxmlet/udagram-reverse-proxy
-    ports:
-      - "8080:8080"
+    build:
+      context: udagram-reverse-proxy
 
   backend-feed:
     image: sxmlet/udagram-api-feed
-    env_file:
-      - .env
-    volumes:
-      - $HOME/.aws:/root/.aws
+    build:
+      context: udagram-api-feed
 
   backend-user:
     image: sxmlet/udagram-api-user
-    env_file:
-      - .env
-    volumes:
-      - $HOME/.aws:/root/.aws
+    build:
+      context: udagram-api-user
 
   frontend:
     image: sxmlet/udagram-frontend
-    env_file:
-      - .env
-    ports:
-      - "8100:80"
+    build:
+      context: udagram-frontend
