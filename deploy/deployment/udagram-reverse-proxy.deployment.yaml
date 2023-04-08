@@ -15,7 +15,7 @@ spec:
       containers:
         - name: udagram-reverse-proxy
           image: sxmlet/udagram-reverse-proxy
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
       restartPolicy: Always

@@ -15,9 +15,9 @@ spec:
       containers:
         - name: udagram-frontend
           image: sxmlet/udagram-frontend
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 80
       restartPolicy: Always
   selector:
     matchLabels:

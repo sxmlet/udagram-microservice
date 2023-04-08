@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: udagram-reverse-proxy
   name: udagram-reverse-proxy-srv
   namespace: default
 spec:
   selector:
-    app: udagram-reverse-proxy-srv
+    app: udagram-reverse-proxy
   ports:
     - port: 8080
       protocol: TCP
