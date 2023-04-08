@@ -3,7 +3,7 @@ import {config} from './config/config';
 
 
 // Configure AWS
-const credentials = new AWS.SharedIniFileCredentials({profile: config.aws_profile});
+const credentials = new AWS.EnvironmentCredentials('UDAGRAM');
 AWS.config.credentials = credentials;
 
 export const s3 = new AWS.S3({
