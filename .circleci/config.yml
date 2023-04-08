@@ -12,7 +12,11 @@ jobs:
       - checkout
       - run: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
       - run: make build
-      - run: make publish-images
+      - when:
+          condition:
+            equal: [ main, << pipeline.git.branch >> ]
+          steps:
+            - run: make publish-images
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
