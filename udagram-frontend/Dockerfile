@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN npm ci
 # Bundle app source
 COPY . .
-RUN ionic build --prod
+RUN ionic build
 ## Run
 FROM nginx:alpine
 #COPY www /usr/share/nginx/html
