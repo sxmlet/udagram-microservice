@@ -18,11 +18,11 @@ rebuild-backend-user:
 rebuild:
 	@docker-compose stop $$SERVICE
 	@docker-compose rm -f $$SERVICE
-	@docker-compose build --force --parallel $$SERVICE
+	@docker-compose -f docker-compose.build.yaml build --force --parallel $$SERVICE
 	@docker-compose up -d $$SERVICE
 
 build:
-	@docker-compose build --parallel
+	@docker-compose -f docker-compose.build.yaml build --parallel
 
 publish-images:
 	@${REPO:? Repository must be specified}
