@@ -22,15 +22,15 @@ spec:
                 configMapKeyRef:
                   key: AWS_BUCKET
                   name: udagram
-            - name: UDAGRAM_ACCESS_KEY
+            - name: UDAGRAM_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  key: UDAGRAM_ACCESS_KEY
+                  key: UDAGRAM_ACCESS_KEY_ID
                   name: secrets
-            - name: UDAGRAM_SECRET_KEY
+            - name: UDAGRAM_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  key: UDAGRAM_SECRET_KEY
+                  key: UDAGRAM_SECRET_ACCESS_KEY
                   name: secrets
             - name: UDAGRAM_SESSION_TOKEN
               valueFrom:
@@ -64,6 +64,11 @@ spec:
                   name: secrets
           ports:
             - containerPort: 8080
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
       restartPolicy: Always
   selector:
     matchLabels:

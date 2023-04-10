@@ -4,7 +4,6 @@ metadata:
   labels:
     app: udagram-api-feed
   name: udagram-api-feed-srv
-  namespace: default
 spec:
   selector:
     app: udagram-api-feed
