@@ -7,26 +7,15 @@ The application consists of 3 services:
 * A backend microservice for user handling
 * Another backend microservice for handling image and content uploads
 
-## Getting started
-
-`screenshots` directory contains the completion proof.
+The infrastructure contains a reverse proxy microservice as well which routes the requests to the appropriate microservice.
 
 ## Deployment
 
-Deployment descriptor files are under `./deploy` directory.
-
-Add metrics server (required for hpa)
-```shell
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-```
-
-Create the secret and config map:
-```shell
-kubectl apply -f secret.yaml
-kubectl apply -f env-configmap.yaml
-```
+Deployment descriptor files are under `./deploy` directory, more info [here](./deploy/README.md).
 
 ## Submission info
+
+`screenshots` directory contains the completion proof.
 
 Corresponding docker repositories:
 * https://hub.docker.com/repository/docker/sxmlet/udagram-reverse-proxy/general
