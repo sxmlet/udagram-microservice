@@ -9,6 +9,8 @@ The application consists of 3 services:
 
 ## Getting started
 
+`screenshots` directory contains the completion proof.
+
 ## Deployment
 
 Deployment descriptor files are under `./deploy` directory.
@@ -24,3 +26,10 @@ kubectl apply -f secret.yaml
 kubectl apply -f env-configmap.yaml
 ```
 
+## Submission info
+
+Corresponding docker repositories:
+* https://hub.docker.com/repository/docker/sxmlet/udagram-reverse-proxy/general
+* https://hub.docker.com/repository/docker/sxmlet/udagram-api-user/general
+* https://hub.docker.com/repository/docker/sxmlet/udagram-api-feed/general
+* https://hub.docker.com/repository/docker/sxmlet/udagram-frontend/general
