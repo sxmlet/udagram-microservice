@@ -16,6 +16,11 @@ spec:
         - name: udagram-api-user
           image: sxmlet/udagram-api-user
           imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 500m
           ports:
             - containerPort: 8080
           env:
